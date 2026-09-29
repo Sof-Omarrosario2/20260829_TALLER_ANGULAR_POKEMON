@@ -1,0 +1,30 @@
+:root {
+  --bg: #12121f;
+  --bg-soft: #1c1c30;
+  --surface: #ffffff;
+  --text: #f5f5fa;
+  --muted: #9a9ab5;
+  --accent: #ef4444;
+  --accent-dark: #b91c1c;
+  --ink: #1a1a2e;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Poppins', system-ui, -apple-system, sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
