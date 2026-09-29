@@ -1,0 +1,665 @@
+/* ==========================================
+   CONTENEDOR GENERAL
+========================================== */
+
+.registration-page {
+  width: 100%;
+  max-width: 980px;
+
+  margin: 0 auto;
+
+  padding: 1rem 0 3rem;
+}
+
+
+/* ==========================================
+   TARJETA PRINCIPAL
+========================================== */
+
+.registration-card {
+  position: relative;
+
+  width: 100%;
+
+  background: #ffffff;
+
+  border: 1px solid #e5e7eb;
+
+  border-radius: 24px;
+
+  padding: clamp(1.5rem, 4vw, 3rem);
+
+  box-shadow:
+    0 10px 30px rgba(15, 23, 42, 0.06),
+    0 2px 8px rgba(15, 23, 42, 0.04);
+
+  overflow: hidden;
+}
+
+
+/* Detalle superior */
+
+.registration-card::before {
+  content: '';
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 5px;
+
+  background: linear-gradient(
+    90deg,
+    #ef4444 0%,
+    #ef4444 48%,
+    #1f2937 48%,
+    #1f2937 52%,
+    #3b82f6 52%,
+    #3b82f6 100%
+  );
+}
+
+
+/* ==========================================
+   INTRODUCCIÓN
+========================================== */
+
+.registration-intro {
+  text-align: center;
+
+  max-width: 650px;
+
+  margin: 0 auto 3rem;
+}
+
+
+/* Poké Ball */
+
+.pokeball-decoration {
+  position: relative;
+
+  width: 70px;
+  height: 70px;
+
+  margin: 0 auto 1.25rem;
+
+  border-radius: 50%;
+
+  background:
+    linear-gradient(
+      to bottom,
+      #ef4444 0%,
+      #ef4444 45%,
+      #1f2937 45%,
+      #1f2937 55%,
+      #ffffff 55%,
+      #ffffff 100%
+    );
+
+  border: 4px solid #ffffff;
+
+  box-shadow:
+    0 4px 15px rgba(15, 23, 42, 0.16);
+}
+
+
+/* Centro */
+
+.pokeball-decoration span {
+  position: absolute;
+
+  width: 23px;
+  height: 23px;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  background: #ffffff;
+
+  border: 4px solid #1f2937;
+
+  border-radius: 50%;
+}
+
+
+.eyebrow {
+  display: inline-block;
+
+  margin-bottom: 0.7rem;
+
+  color: #3b82f6;
+
+  font-size: 0.72rem;
+
+  font-weight: 800;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+}
+
+
+.registration-intro h1 {
+  margin: 0 0 0.6rem;
+
+  color: #172033;
+
+  font-family: 'Chakra Petch', sans-serif;
+
+  font-size: clamp(2rem, 5vw, 2.8rem);
+
+  font-weight: 700;
+
+  line-height: 1.1;
+}
+
+
+.registration-intro p {
+  margin: 0;
+
+  color: #64748b;
+
+  font-size: 1rem;
+
+  line-height: 1.6;
+}
+
+
+/* ==========================================
+   SECCIONES
+========================================== */
+
+.form-block {
+  padding: 2rem 0;
+
+  border-top: 1px solid #e5e7eb;
+}
+
+
+.section-heading {
+  display: flex;
+
+  align-items: center;
+
+  gap: 1rem;
+
+  margin-bottom: 1.5rem;
+}
+
+
+.section-number {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex: 0 0 45px;
+
+  width: 45px;
+  height: 45px;
+
+  border-radius: 12px;
+
+  background: #eff6ff;
+
+  color: #2563eb;
+
+  font-family: 'Chakra Petch', sans-serif;
+
+  font-size: 0.9rem;
+
+  font-weight: 800;
+}
+
+
+.section-heading h2 {
+  margin: 0 0 0.15rem;
+
+  color: #1e293b;
+
+  font-family: 'Chakra Petch', sans-serif;
+
+  font-size: 1.1rem;
+
+  font-weight: 700;
+}
+
+
+.section-heading p {
+  margin: 0;
+
+  color: #94a3b8;
+
+  font-size: 0.85rem;
+}
+
+
+/* ==========================================
+   GRID DE CAMPOS
+========================================== */
+
+.fields-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 1.25rem;
+}
+
+
+/* ==========================================
+   INPUT GROUP
+========================================== */
+
+.input-group {
+  display: flex;
+
+  flex-direction: column;
+
+  min-width: 0;
+}
+
+
+.input-group label {
+  margin-bottom: 0.5rem;
+
+  color: #334155;
+
+  font-size: 0.88rem;
+
+  font-weight: 700;
+}
+
+
+/* ==========================================
+   INPUTS
+========================================== */
+
+.input-group input,
+.input-group select {
+  width: 100%;
+
+  min-height: 50px;
+
+  padding: 0.8rem 1rem;
+
+  background: #f8fafc;
+
+  border: 1px solid #dbe2ea;
+
+  border-radius: 12px;
+
+  color: #1e293b;
+
+  font-size: 0.92rem;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+
+/* Placeholder */
+
+.input-group input::placeholder {
+  color: #a1adba;
+}
+
+
+/* Hover */
+
+.input-group input:hover,
+.input-group select:hover {
+  border-color: #bfdbfe;
+
+  background: #ffffff;
+}
+
+
+/* Focus */
+
+.input-group input:focus,
+.input-group select:focus {
+  outline: none;
+
+  border-color: #3b82f6;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 0 0 4px rgba(59, 130, 246, 0.1);
+}
+
+
+/* Select */
+
+.input-group select {
+  cursor: pointer;
+}
+
+
+/* Opciones */
+
+.input-group select option {
+  background: #ffffff;
+
+  color: #1e293b;
+}
+
+
+/* Fecha */
+
+.input-group input[type="date"] {
+  color: #475569;
+}
+
+
+.input-group input[type="date"]::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+
+  opacity: 0.6;
+}
+
+
+/* ==========================================
+   TERMINOS
+========================================== */
+
+.terms {
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 0.8rem;
+
+  margin: 1rem 0 1.5rem;
+
+  color: #64748b;
+
+  font-size: 0.85rem;
+
+  line-height: 1.5;
+
+  cursor: pointer;
+}
+
+
+.terms input {
+  position: absolute;
+
+  opacity: 0;
+
+  pointer-events: none;
+}
+
+
+.custom-check {
+  flex: 0 0 20px;
+
+  width: 20px;
+  height: 20px;
+
+  margin-top: 1px;
+
+  border: 2px solid #cbd5e1;
+
+  border-radius: 6px;
+
+  background: #ffffff;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+
+.terms input:checked + .custom-check {
+  background: #3b82f6;
+
+  border-color: #3b82f6;
+
+  box-shadow:
+    inset 0 0 0 3px #ffffff;
+}
+
+
+/* ==========================================
+   BOTÓN
+========================================== */
+
+.register-button {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 1rem;
+
+  width: 100%;
+
+  min-height: 54px;
+
+  padding: 0.9rem 1.5rem;
+
+  border: none;
+
+  border-radius: 13px;
+
+  background: #3b82f6;
+
+  color: #ffffff;
+
+  font-family: 'Chakra Petch', sans-serif;
+
+  font-size: 0.95rem;
+
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 6px 15px rgba(59, 130, 246, 0.2);
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.register-button:hover {
+  background: #2563eb;
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 10px 22px rgba(59, 130, 246, 0.25);
+}
+
+
+.register-button:active {
+  transform: translateY(0);
+
+  box-shadow:
+    0 4px 10px rgba(59, 130, 246, 0.18);
+}
+
+
+.button-arrow {
+  font-size: 1.2rem;
+
+  transition: transform 0.2s ease;
+}
+
+
+.register-button:hover .button-arrow {
+  transform: translateX(4px);
+}
+
+
+/* ==========================================
+   REGISTRO EXITOSO
+========================================== */
+
+.success-card {
+  display: flex;
+
+  align-items: center;
+
+  gap: 1rem;
+
+  width: 100%;
+
+  margin-top: 1.5rem;
+
+  padding: 1.25rem 1.5rem;
+
+  background: #ffffff;
+
+  border: 1px solid #bbf7d0;
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 8px 20px rgba(22, 101, 52, 0.06);
+}
+
+
+.success-icon {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex: 0 0 42px;
+
+  width: 42px;
+  height: 42px;
+
+  border-radius: 50%;
+
+  background: #dcfce7;
+
+  color: #16a34a;
+
+  font-size: 1.2rem;
+
+  font-weight: 800;
+}
+
+
+.success-card span {
+  color: #16a34a;
+
+  font-size: 0.72rem;
+
+  font-weight: 800;
+
+  letter-spacing: 0.06em;
+
+  text-transform: uppercase;
+}
+
+
+.success-card h2 {
+  margin: 0.2rem 0;
+
+  color: #1e293b;
+
+  font-family: 'Chakra Petch', sans-serif;
+
+  font-size: 1rem;
+}
+
+
+.success-card p {
+  margin: 0;
+
+  color: #64748b;
+
+  font-size: 0.85rem;
+}
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 700px) {
+
+  .registration-page {
+    padding-top: 0.5rem;
+  }
+
+  .registration-card {
+    border-radius: 18px;
+
+    padding: 1.5rem;
+  }
+
+  .registration-intro {
+    margin-bottom: 2rem;
+  }
+
+  .registration-intro h1 {
+    font-size: 2rem;
+  }
+
+  .fields-grid {
+    grid-template-columns: 1fr;
+
+    gap: 1rem;
+  }
+
+  .form-block {
+    padding: 1.5rem 0;
+  }
+}
+
+
+@media (max-width: 480px) {
+
+  .registration-card {
+    padding: 1.2rem;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+  }
+
+  .section-number {
+    flex-basis: 38px;
+
+    width: 38px;
+    height: 38px;
+
+    border-radius: 10px;
+
+    font-size: 0.78rem;
+  }
+
+  .section-heading h2 {
+    font-size: 1rem;
+  }
+
+  .section-heading p {
+    font-size: 0.78rem;
+  }
+
+  .input-group input,
+  .input-group select {
+    min-height: 48px;
+  }
+
+  .success-card {
+    align-items: flex-start;
+
+    padding: 1rem;
+  }
+}

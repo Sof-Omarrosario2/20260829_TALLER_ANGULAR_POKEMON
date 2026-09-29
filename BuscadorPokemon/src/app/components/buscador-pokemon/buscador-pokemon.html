@@ -1,0 +1,25 @@
+<h1>Buscador de Pokémon</h1>
+
+<form (ngSubmit)="buscarPokemon()">
+  <input
+    type="text"
+    name="nombrePokemon"
+    placeholder="Escribe un Pokémon"
+    [ngModel]="nombrePokemonInput()"
+    (ngModelChange)="nombrePokemonInput.set($event)"
+  />
+
+  <button type="submit">Buscar</button>
+</form>
+
+@if (mensajeError()) {
+  <p>{{ mensajeError() }}</p>
+}
+
+@if (pokemon(); as resultado) {
+  <section>
+    <h2>{{ resultado.name }}</h2>
+    <img [src]="resultado.image" [alt]="resultado.name" />
+    <p>Tipo: {{ resultado.type }}</p>
+  </section>
+}

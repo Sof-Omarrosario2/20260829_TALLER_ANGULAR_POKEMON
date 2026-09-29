@@ -1,30 +1,387 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=Nunito:wght@400;500;600;700;800&display=swap');
+
 :root {
-  --bg: #12121f;
-  --bg-soft: #1c1c30;
+  color-scheme: light;
+
+  font-family: 'Nunito', sans-serif;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+
+  /* =========================================
+     COLORES PRINCIPALES
+  ========================================= */
+
+  --primary: #4f7cff;
+  --primary-dark: #315ee8;
+  --primary-light: #eaf0ff;
+
+  --pokemon-red: #ef5350;
+  --pokemon-red-dark: #d93636;
+  --pokemon-red-light: #fff0ef;
+
+  --yellow: #f5b82e;
+  --yellow-dark: #d99812;
+  --yellow-light: #fff7dc;
+
+  --green: #45b97c;
+  --green-light: #e9f8f0;
+
+  --purple: #8b6ee8;
+  --purple-light: #f1edff;
+
+
+  /* =========================================
+     FONDOS
+  ========================================= */
+
+  --background: #f7f8fc;
+
   --surface: #ffffff;
-  --text: #f5f5fa;
-  --muted: #9a9ab5;
-  --accent: #ef4444;
-  --accent-dark: #b91c1c;
-  --ink: #1a1a2e;
+
+  --surface-soft: #fbfcff;
+
+  --surface-blue: #f1f5ff;
+
+  --surface-red: #fff5f4;
+
+
+  /* =========================================
+     TEXTO
+  ========================================= */
+
+  --text: #334155;
+
+  --text-dark: #172033;
+
+  --muted: #64748b;
+
+  --muted-light: #94a3b8;
+
+  --white: #ffffff;
+
+
+  /* =========================================
+     BORDES
+  ========================================= */
+
+  --line: #e4e8f0;
+
+  --line-blue: #cbd8ff;
+
+  --line-red: #f6c4c2;
+
+
+  /* =========================================
+     SOMBRAS
+  ========================================= */
+
+  --shadow-sm:
+    0 2px 8px rgba(30, 41, 59, 0.05);
+
+  --shadow:
+    0 8px 25px rgba(30, 41, 59, 0.07);
+
+  --shadow-lg:
+    0 16px 40px rgba(30, 41, 59, 0.10);
+
+
+  /* =========================================
+     BORDES REDONDEADOS
+  ========================================= */
+
+  --radius-sm: 8px;
+
+  --radius: 14px;
+
+  --radius-lg: 20px;
+
+  --radius-xl: 26px;
 }
+
+
+/* =========================================
+   RESET
+========================================= */
 
 * {
   box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
-html,
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: 'Poppins', system-ui, -apple-system, sans-serif;
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
+
+html {
+  min-width: 320px;
+
+  min-height: 100%;
+
+  background: var(--background);
+
+  scroll-behavior: smooth;
 }
+
+
+body {
+  min-width: 320px;
+
+  min-height: 100vh;
+
+  margin: 0;
+
+  background:
+    radial-gradient(
+      circle at 5% 0%,
+      rgba(79, 124, 255, 0.08),
+      transparent 26rem
+    ),
+
+    radial-gradient(
+      circle at 100% 100%,
+      rgba(239, 83, 80, 0.055),
+      transparent 25rem
+    ),
+
+    var(--background);
+
+  color: var(--text);
+
+  font-family: 'Nunito', sans-serif;
+}
+
+
+/* =========================================
+   ELEMENTOS DE FORMULARIO
+========================================= */
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+
+button {
+  cursor: pointer;
+}
+
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+
+/* =========================================
+   FOCUS
+========================================= */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid rgba(79, 124, 255, 0.25);
+
+  outline-offset: 3px;
+}
+
+
+/* =========================================
+   ENLACES
+========================================= */
+
+a {
+  color: var(--primary);
+
+  text-decoration: none;
+}
+
+
+a:hover {
+  color: var(--primary-dark);
+}
+
+
+/* =========================================
+   SCROLLBAR
+========================================= */
+
+::-webkit-scrollbar {
+  width: 9px;
+
+  height: 9px;
+}
+
+
+::-webkit-scrollbar-track {
+  background: #eef1f7;
+}
+
+
+::-webkit-scrollbar-thumb {
+  background: #cbd3e1;
+
+  border-radius: 999px;
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+  background: #aeb8c8;
+}
+
+
+/* =========================================
+   SELECCIÓN DE TEXTO
+========================================= */
+
+::selection {
+  background: #dce6ff;
+
+  color: #243b7a;
+}
+
+
+/* =========================================
+   IMÁGENES
+========================================= */
 
 img {
-  display: block;
   max-width: 100%;
+}
+
+
+/* =========================================
+   TÍTULOS GENERALES
+========================================= */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Nunito', sans-serif;
+
+  color: var(--text-dark);
+}
+
+
+/* =========================================
+   INPUTS GENERALES
+========================================= */
+
+input,
+select,
+textarea {
+  color: var(--text-dark);
+
+  background: var(--surface);
+
+  border: 1px solid var(--line);
+
+  border-radius: var(--radius-sm);
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--muted-light);
+}
+
+
+input:hover,
+select:hover,
+textarea:hover {
+  border-color: #cbd5e1;
+}
+
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--primary);
+
+  background: #ffffff;
+
+  box-shadow:
+    0 0 0 4px rgba(79, 124, 255, 0.08);
+
+  outline: none;
+}
+
+
+/* =========================================
+   SELECT
+========================================= */
+
+select {
+  cursor: pointer;
+}
+
+
+select option {
+  color: var(--text-dark);
+
+  background: #ffffff;
+}
+
+
+/* =========================================
+   CHECKBOX
+========================================= */
+
+input[type='checkbox'] {
+  accent-color: var(--primary);
+}
+
+
+/* =========================================
+   DATE
+========================================= */
+
+input[type='date'] {
+  color: var(--text-dark);
+}
+
+
+input[type='date']::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+
+  opacity: 0.65;
+}
+
+
+/* =========================================
+   TRANSICIONES
+========================================= */
+
+button,
+a,
+input,
+select,
+textarea {
+  transition:
+    color 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+/* =========================================
+   RESPONSIVE GLOBAL
+========================================= */
+
+@media (max-width: 600px) {
+
+  body {
+    font-size: 15px;
+  }
+
 }

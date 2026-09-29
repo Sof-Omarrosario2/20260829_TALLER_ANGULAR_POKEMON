@@ -1,0 +1,158 @@
+<div class="inventory-header">
+
+  <div class="inventory-title">
+
+    <div class="inventory-icon">
+      🎒
+    </div>
+
+    <div>
+      <span class="eyebrow">MI COLECCIÓN</span>
+
+      <h2>La Mochila Pokémon</h2>
+
+      <p>
+        Tus Pokémon capturados y favoritos
+      </p>
+    </div>
+
+  </div>
+
+
+  <div class="inventory-counter">
+
+    <strong>
+      {{ pokemonService.misPokemons().length }}
+    </strong>
+
+    <span>
+      Pokémon
+    </span>
+
+  </div>
+
+</div>
+
+
+<div class="collection-grid">
+
+  @for (
+    poke of pokemonService.misPokemons();
+    track poke.id;
+    let idx = $index;
+    let total = $count
+  ) {
+
+    <article
+      appResaltarTarjeta
+      class="pokemon-item"
+      [ngClass]="{
+        'favorito-activo': poke.esFavorito
+      }"
+    >
+
+      <!-- Número / favorito -->
+
+      <div class="card-top">
+
+        <span class="position">
+          #{{ idx + 1 }}
+        </span>
+
+        @if (poke.esFavorito) {
+          <span class="favorite-label">
+            ★ Favorito
+          </span>
+        }
+
+      </div>
+
+
+      <!-- Imagen -->
+
+      <div class="pokemon-image">
+
+        <div class="image-background"></div>
+
+        <img
+          [src]="poke.image"
+          [alt]="poke.name"
+        />
+
+      </div>
+
+
+      <!-- Información -->
+
+      <div class="pokemon-details">
+
+        <h3>
+          {{ poke.name }}
+        </h3>
+
+        <span class="pokemon-type">
+          {{ poke.type }}
+        </span>
+
+        <span class="collection-position">
+          Pokémon {{ idx + 1 }} de {{ total }}
+        </span>
+
+      </div>
+
+
+      <!-- Acciones -->
+
+      <div class="actions">
+
+        <button
+          class="favorite-button"
+          [class.active]="poke.esFavorito"
+          (click)="pokemonService.actualizarFavorito(poke.id)"
+        >
+
+          @if (poke.esFavorito) {
+            ★ Favorito
+          } @else {
+            ☆ Marcar favorito
+          }
+
+        </button>
+
+
+        <button
+          class="delete-button"
+          (click)="pokemonService.eliminarPokemon(poke.id)"
+        >
+          Liberar
+        </button>
+
+      </div>
+
+    </article>
+
+  } @empty {
+
+    <div class="empty-collection">
+
+      <div class="empty-icon">
+        🎒
+      </div>
+
+      <h3>
+        Tu mochila está vacía
+      </h3>
+
+      <p>
+        Todavía no tienes ningún Pokémon capturado.
+      </p>
+
+      <p class="empty-hint">
+        Busca un Pokémon y agrégalo a tu colección.
+      </p>
+
+    </div>
+
+  }
+
+</div>

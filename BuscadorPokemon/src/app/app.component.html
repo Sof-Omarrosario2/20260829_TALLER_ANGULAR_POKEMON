@@ -1,89 +1,22 @@
-<div class="page">
-  <header class="hero">
-    <div class="pokeball" aria-hidden="true"></div>
-    <h1>Pokedex</h1>
-    <p>Busca cualquier Pokemon y descubre su imagen, tipo, descripcion y poderes.</p>
-
-    <form class="search" (ngSubmit)="search()">
-      <input
-        type="text"
-        name="query"
-        [(ngModel)]="query"
-        placeholder="Ej: pikachu, charizard, 25..."
-        aria-label="Nombre o numero del Pokemon"
-        autocomplete="off"
-      />
-      <button type="submit" [disabled]="loading()">
-        <span *ngIf="!loading()">Buscar</span>
-        <span *ngIf="loading()">Buscando...</span>
-      </button>
-    </form>
-  </header>
-
-  <main class="content">
-    <p class="error" *ngIf="error()" role="alert">{{ error() }}</p>
-
-    <div class="loading" *ngIf="loading()" aria-live="polite">
-      <div class="spinner" aria-hidden="true"></div>
-      <span>Cargando Pokemon...</span>
+<header class="app-header">
+  <div class="header-brand">
+    <span class="brand-orb" aria-hidden="true"></span>
+    <div>
+      <p class="brand-kicker">POKÉDEX // ARCADE SYSTEM</p>
+      <h1>{{ titulo }}</h1>
     </div>
+  </div>
 
-    <p class="hint" *ngIf="!loading() && !searched() && results().length">
-      Pokemon destacados &mdash; usa el buscador para encontrar otros.
-    </p>
+  <nav>
+    <ul class="nav-list">
+      <li><a routerLink="/registro" routerLinkActive="active">Registro de usuario</a></li>
+      <li><a routerLink="/buscador" routerLinkActive="active">Buscador de Pokemon</a></li>
+      <li><a routerLink="/inventario" routerLinkActive="active">Inventario</a></li>
+    </ul>
+  </nav>
+  <p class="system-status"><span></span> SISTEMA ONLINE</p>
+</header>
 
-    <section class="grid" *ngIf="!loading()">
-      <article class="card" *ngFor="let p of results()">
-        <div class="card-media" [attr.data-type]="p.types[0]">
-          <span class="card-id">{{ formatId(p.id) }}</span>
-          <img
-            [src]="p.image"
-            [alt]="'Imagen de ' + p.name"
-            loading="lazy"
-          />
-        </div>
-
-        <div class="card-body">
-          <h2 class="card-name">{{ p.name }}</h2>
-
-          <div class="types">
-            <span class="type" *ngFor="let t of p.types" [attr.data-type]="t">
-              {{ t }}
-            </span>
-          </div>
-
-          <p class="description">{{ p.description }}</p>
-
-          <div class="meta">
-            <div><strong>Altura</strong><span>{{ p.height }} m</span></div>
-            <div><strong>Peso</strong><span>{{ p.weight }} kg</span></div>
-          </div>
-
-          <div class="powers">
-            <h3>Poderes / Habilidades</h3>
-            <div class="abilities">
-              <span class="ability" *ngFor="let a of p.abilities">{{ a }}</span>
-            </div>
-          </div>
-
-          <div class="stats">
-            <div class="stat" *ngFor="let s of p.stats">
-              <span class="stat-name">{{ statLabel(s.name) }}</span>
-              <div class="bar">
-                <div
-                  class="bar-fill"
-                  [style.width.%]="(s.value / 200) * 100"
-                ></div>
-              </div>
-              <span class="stat-value">{{ s.value }}</span>
-            </div>
-          </div>
-        </div>
-      </article>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <p>Datos proporcionados por <a href="https://pokeapi.co" target="_blank" rel="noopener">PokeAPI</a>.</p>
-  </footer>
-</div>
+<main class="app-main">
+  <router-outlet></router-outlet>
+</main>

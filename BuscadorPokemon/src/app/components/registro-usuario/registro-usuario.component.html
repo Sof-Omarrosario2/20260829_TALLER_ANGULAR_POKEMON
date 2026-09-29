@@ -1,0 +1,304 @@
+<main class="registration-page">
+
+  <section class="registration-card">
+
+    <div class="registration-intro">
+
+      <div class="pokeball-decoration">
+        <span></span>
+      </div>
+
+      <span class="eyebrow">POKÉDEX TRAINER</span>
+
+      <h1>Crear cuenta</h1>
+
+      <p>
+        Registra tus datos para comenzar tu aventura Pokémon.
+      </p>
+
+    </div>
+
+
+    <form id="formularioregistro" (ngSubmit)="guardarUsuario()">
+
+      <!-- INFORMACIÓN PERSONAL -->
+
+      <section class="form-block">
+
+        <div class="section-heading">
+
+          <div class="section-number">
+            01
+          </div>
+
+          <div>
+            <h2>Información personal</h2>
+            <p>Cuéntanos quién eres</p>
+          </div>
+
+        </div>
+
+
+        <div class="fields-grid">
+
+          <div class="input-group">
+            <label for="nombreCompleto">
+              Nombre completo
+            </label>
+
+            <input
+              id="nombreCompleto"
+              name="nombreCompleto"
+              type="text"
+              placeholder="Ej. Ash Ketchum"
+              [(ngModel)]="nombreCompleto"
+              required
+            >
+          </div>
+
+
+          <div class="input-group">
+            <label for="documentoTipo">
+              Tipo de documento
+            </label>
+
+            <select
+              id="documentoTipo"
+              name="documentoTipo"
+              [(ngModel)]="documentoTipo"
+              required
+            >
+              <option value="" disabled>
+                Seleccione una opción
+              </option>
+
+              <option value="DNI">
+                Documento Nacional de Identidad (DNI)
+              </option>
+
+              <option value="CC">
+                Cédula de Ciudadanía (CC)
+              </option>
+
+              <option value="TI">
+                Tarjeta de Identidad (TI)
+              </option>
+
+              <option value="PA">
+                Pasaporte (PA)
+              </option>
+            </select>
+          </div>
+
+
+          <div class="input-group">
+            <label for="numeroDocumento">
+              Número de documento
+            </label>
+
+            <input
+              id="numeroDocumento"
+              name="numeroDocumento"
+              type="text"
+              placeholder="Ej. 123456789"
+              [(ngModel)]="numeroDocumento"
+              required
+            >
+          </div>
+
+
+          <div class="input-group">
+            <label for="fechaNacimiento">
+              Fecha de nacimiento
+            </label>
+
+            <input
+              id="fechaNacimiento"
+              name="fechaNacimiento"
+              type="date"
+              [(ngModel)]="fecha_nac"
+              required
+            >
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- DATOS DE CONTACTO -->
+
+      <section class="form-block">
+
+        <div class="section-heading">
+
+          <div class="section-number">
+            02
+          </div>
+
+          <div>
+            <h2>Datos de contacto</h2>
+            <p>¿Cómo podemos comunicarnos contigo?</p>
+          </div>
+
+        </div>
+
+
+        <div class="fields-grid">
+
+          <div class="input-group">
+            <label for="correo">
+              Correo electrónico
+            </label>
+
+            <input
+              id="correo"
+              name="correo"
+              type="email"
+              placeholder="correo@ejemplo.com"
+              [(ngModel)]="correo"
+              required
+            >
+          </div>
+
+
+          <div class="input-group">
+            <label for="celular">
+              Número de teléfono
+            </label>
+
+            <input
+              id="celular"
+              name="celular"
+              type="tel"
+              pattern="[0-9]{10}"
+              placeholder="300 123 4567"
+              [(ngModel)]="celular"
+              required
+            >
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- DOMICILIO -->
+
+      <section class="form-block">
+
+        <div class="section-heading">
+
+          <div class="section-number">
+            03
+          </div>
+
+          <div>
+            <h2>Ubicación</h2>
+            <p>¿Dónde se encuentra tu centro Pokémon?</p>
+          </div>
+
+        </div>
+
+
+        <div class="fields-grid">
+
+          <div class="input-group">
+            <label for="pais">
+              País
+            </label>
+
+            <input
+              id="pais"
+              name="pais"
+              type="text"
+              placeholder="Ej. Colombia"
+              [(ngModel)]="pais"
+              required
+            >
+          </div>
+
+
+          <div class="input-group">
+            <label for="ciudad">
+              Ciudad
+            </label>
+
+            <input
+              id="ciudad"
+              name="ciudad"
+              type="text"
+              placeholder="Ej. Bogotá"
+              [(ngModel)]="ciudad"
+              required
+            >
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- TERMINOS -->
+
+      <label class="terms">
+
+        <input
+          id="tratamiento_datos"
+          name="tratamientos"
+          type="checkbox"
+          [(ngModel)]="tratamientos"
+          required
+        >
+
+        <span class="custom-check"></span>
+
+        <span>
+          Acepto la política de tratamiento de datos
+          y los términos de servicio.
+        </span>
+
+      </label>
+
+
+      <!-- BOTON -->
+
+      <button
+        type="submit"
+        class="register-button"
+      >
+        <span>Crear mi cuenta</span>
+        <span class="button-arrow">→</span>
+      </button>
+
+    </form>
+
+  </section>
+
+
+  <!-- USUARIO REGISTRADO -->
+
+  <section
+    *ngIf="ultimoUsuario as usuario"
+    class="success-card"
+  >
+
+    <div class="success-icon">
+      ✓
+    </div>
+
+    <div>
+      <span>Registro completado</span>
+
+      <h2>
+        ¡Bienvenido, {{ usuario.nombreCompleto }}!
+      </h2>
+
+      <p>
+        {{ usuario.correo }}
+      </p>
+    </div>
+
+  </section>
+
+</main>

@@ -1,0 +1,195 @@
+<div class="pokedex-page">
+
+  <!-- Encabezado -->
+  <section class="search-hero">
+
+    <div class="hero-icon">
+      <div class="mini-pokeball">
+        <span></span>
+      </div>
+    </div>
+
+    <div class="hero-content">
+      <span class="eyebrow">POKÉDEX</span>
+
+      <h1>Explora Pokémon</h1>
+
+      <p>
+        Busca un Pokémon por su nombre y descubre sus características.
+      </p>
+    </div>
+
+  </section>
+
+
+  <!-- Buscador -->
+  <section class="search-card">
+
+    <form (ngSubmit)="buscarPokemon()">
+
+      <div class="search-field">
+
+        <label for="nombrePokemon">
+          Nombre del Pokémon
+        </label>
+
+        <div class="input-wrapper">
+
+          <span class="search-icon">⌕</span>
+
+          <input
+            id="nombrePokemon"
+            type="text"
+            [ngModel]="nombrePokemoninput()"
+            (ngModelChange)="nombrePokemoninput.set($event)"
+            name="nombrePokemon"
+            placeholder="Ej. pikachu, charmander, bulbasaur"
+            required
+          />
+
+        </div>
+
+      </div>
+
+
+      <button
+        type="submit"
+        class="search-button"
+        [disabled]="cargando()"
+      >
+
+        @if (cargando()) {
+          <span class="spinner"></span>
+          Buscando...
+        } @else {
+          <span>🔍</span>
+          Buscar Pokémon
+        }
+
+      </button>
+
+    </form>
+
+  </section>
+
+
+  <!-- Error -->
+  @if (mensajeError()) {
+
+    <div class="error-message">
+
+      <div class="error-icon">
+        !
+      </div>
+
+      <div>
+        <strong>No encontramos ese Pokémon</strong>
+        <p>{{ mensajeError() }}</p>
+      </div>
+
+    </div>
+
+  }
+
+
+  <!-- Resultado -->
+  @if (pokemon(); as poke) {
+
+    <section
+      appResaltarTarjeta
+      colorBorde="#3b82f6"
+      class="pokemon-result"
+    >
+
+      <div class="result-header">
+
+        <span class="result-label">
+          POKÉMON ENCONTRADO
+        </span>
+
+        <span class="pokemon-number">
+          #{{ poke.id }}
+        </span>
+
+      </div>
+
+
+      <div class="pokemon-content">
+
+        <!-- Imagen -->
+        <div class="pokemon-image-area">
+
+          <div class="image-circle"></div>
+
+          <img
+            [src]="poke.image"
+            [alt]="poke.name"
+          />
+
+        </div>
+
+
+        <!-- Información -->
+        <div class="pokemon-info">
+
+          <h2>
+            {{ poke.name }}
+          </h2>
+
+
+          <div class="pokemon-type-row">
+
+            <span class="info-label">
+              TIPO
+            </span>
+
+            <span
+              class="badge-tipo"
+              [ngStyle]="{
+                'background-color':
+                  poke.type === 'fire'
+                    ? '#ef4444'
+                    : poke.type === 'water'
+                      ? '#3b82f6'
+                      : poke.type === 'grass'
+                        ? '#22c55e'
+                        : '#94a3b8'
+              }"
+            >
+              {{ poke.type }}
+            </span>
+
+          </div>
+
+
+          <div class="experience">
+
+            <span class="info-label">
+              EXPERIENCIA BASE
+            </span>
+
+            <strong>
+              {{ poke.baseExperience }}
+              <small>EXP</small>
+            </strong>
+
+          </div>
+
+
+          <button
+            class="btn-guardar"
+            (click)="guardarEnEquipo()"
+          >
+            <span>＋</span>
+            Guardar en mi inventario
+          </button>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  }
+
+</div>

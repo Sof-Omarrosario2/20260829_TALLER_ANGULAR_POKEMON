@@ -1,0 +1,649 @@
+:host {
+  display: block;
+
+  width: 100%;
+}
+
+
+/* ==========================================
+   HEADER DEL INVENTARIO
+========================================== */
+
+.inventory-header {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  gap: 1.5rem;
+
+  margin-bottom: 1.75rem;
+
+  padding: 1.5rem;
+
+  background: #ffffff;
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 20px;
+
+  box-shadow:
+    0 6px 20px rgba(30, 64, 175, 0.06);
+}
+
+
+.inventory-title {
+  display: flex;
+
+  align-items: center;
+
+  gap: 1rem;
+}
+
+
+.inventory-icon {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  flex: 0 0 58px;
+
+  width: 58px;
+  height: 58px;
+
+  border-radius: 16px;
+
+  background: #eff6ff;
+
+  font-size: 1.7rem;
+}
+
+
+.eyebrow {
+  display: block;
+
+  margin-bottom: 0.2rem;
+
+  color: #3b82f6;
+
+  font-size: 0.65rem;
+
+  font-weight: 800;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+}
+
+
+.inventory-title h2 {
+  margin: 0;
+
+  color: #172033;
+
+  font-family: 'Chakra Petch', sans-serif;
+
+  font-size: clamp(1.3rem, 4vw, 1.8rem);
+
+  font-weight: 700;
+}
+
+
+.inventory-title p {
+  margin: 0.25rem 0 0;
+
+  color: #64748b;
+
+  font-size: 0.85rem;
+}
+
+
+/* ==========================================
+   CONTADOR
+========================================== */
+
+.inventory-counter {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+
+  min-width: 90px;
+
+  padding: 0.8rem 1rem;
+
+  border-radius: 14px;
+
+  background: #f8fafc;
+
+  border: 1px solid #e2e8f0;
+}
+
+
+.inventory-counter strong {
+  color: #2563eb;
+
+  font-family: 'Chakra Petch', sans-serif;
+
+  font-size: 1.6rem;
+
+  line-height: 1;
+}
+
+
+.inventory-counter span {
+  margin-top: 0.3rem;
+
+  color: #94a3b8;
+
+  font-size: 0.65rem;
+
+  font-weight: 800;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.05em;
+}
+
+
+/* ==========================================
+   GRID
+========================================== */
+
+.collection-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(auto-fill, minmax(210px, 1fr));
+
+  gap: 1.25rem;
+}
+
+
+/* ==========================================
+   TARJETA POKÉMON
+========================================== */
+
+.pokemon-item {
+  position: relative;
+
+  display: flex;
+
+  flex-direction: column;
+
+  min-width: 0;
+
+  overflow: hidden;
+
+  background: #ffffff;
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 20px;
+
+  box-shadow:
+    0 6px 18px rgba(30, 64, 175, 0.06);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+
+.pokemon-item:hover {
+  transform: translateY(-5px);
+
+  border-color: #bfdbfe;
+
+  box-shadow:
+    0 14px 30px rgba(30, 64, 175, 0.12);
+}
+
+
+/* ==========================================
+   PARTE SUPERIOR
+========================================== */
+
+.card-top {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  min-height: 42px;
+
+  padding: 0.75rem 0.9rem;
+}
+
+
+.position {
+  color: #94a3b8;
+
+  font-family: 'Chakra Petch', sans-serif;
+
+  font-size: 0.75rem;
+
+  font-weight: 800;
+}
+
+
+.favorite-label {
+  padding: 0.3rem 0.55rem;
+
+  border-radius: 999px;
+
+  background: #fef3c7;
+
+  color: #b45309;
+
+  font-size: 0.62rem;
+
+  font-weight: 800;
+}
+
+
+/* ==========================================
+   IMAGEN
+========================================== */
+
+.pokemon-image {
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  height: 180px;
+
+  margin: 0 0.8rem;
+
+  overflow: hidden;
+
+  border-radius: 15px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #eff6ff,
+      #f8fafc
+    );
+}
+
+
+.image-background {
+  position: absolute;
+
+  width: 125px;
+  height: 125px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.85);
+}
+
+
+.pokemon-image img {
+  position: relative;
+
+  z-index: 1;
+
+  width: 145px;
+  height: 145px;
+
+  object-fit: contain;
+
+  filter:
+    drop-shadow(
+      0 10px 8px rgba(15, 23, 42, 0.14)
+    );
+
+  transition:
+    transform 0.25s ease;
+}
+
+
+.pokemon-item:hover .pokemon-image img {
+  transform: scale(1.08) translateY(-3px);
+}
+
+
+/* ==========================================
+   INFORMACIÓN
+========================================== */
+
+.pokemon-details {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  padding: 1rem 1rem 0.8rem;
+
+  text-align: center;
+}
+
+
+.pokemon-details h3 {
+  margin: 0 0 0.5rem;
+
+  color: #172033;
+
+  font-family: 'Chakra Petch', sans-serif;
+
+  font-size: 1.15rem;
+
+  font-weight: 700;
+
+  text-transform: capitalize;
+}
+
+
+.pokemon-type {
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  min-width: 70px;
+
+  padding: 0.35rem 0.7rem;
+
+  border-radius: 999px;
+
+  background: #eff6ff;
+
+  color: #2563eb;
+
+  font-size: 0.65rem;
+
+  font-weight: 800;
+
+  text-transform: uppercase;
+}
+
+
+.collection-position {
+  margin-top: 0.55rem;
+
+  color: #94a3b8;
+
+  font-size: 0.68rem;
+}
+
+
+/* ==========================================
+   ACCIONES
+========================================== */
+
+.actions {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 0.5rem;
+
+  margin-top: auto;
+
+  padding: 0.9rem;
+}
+
+
+.actions button {
+  min-height: 38px;
+
+  padding: 0.55rem 0.35rem;
+
+  border-radius: 9px;
+
+  font-size: 0.68rem;
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+/* Favorito */
+
+.favorite-button {
+  border: 1px solid #bfdbfe;
+
+  background: #eff6ff;
+
+  color: #2563eb;
+}
+
+
+.favorite-button:hover {
+  background: #dbeafe;
+
+  border-color: #93c5fd;
+}
+
+
+.favorite-button.active {
+  border-color: #fbbf24;
+
+  background: #fef3c7;
+
+  color: #b45309;
+}
+
+
+/* Eliminar */
+
+.delete-button {
+  border: 1px solid #fecaca;
+
+  background: #ffffff;
+
+  color: #dc2626;
+}
+
+
+.delete-button:hover {
+  background: #fef2f2;
+
+  border-color: #fca5a5;
+
+  transform: translateY(-1px);
+}
+
+
+/* ==========================================
+   FAVORITO ACTIVO
+========================================== */
+
+.pokemon-item.favorito-activo {
+  border-color: #fcd34d;
+
+  box-shadow:
+    0 8px 24px rgba(245, 158, 11, 0.12);
+}
+
+
+.pokemon-item.favorito-activo .pokemon-image {
+  background:
+    linear-gradient(
+      145deg,
+      #fffbeb,
+      #fef3c7
+    );
+}
+
+
+/* ==========================================
+   COLECCIÓN VACÍA
+========================================== */
+
+.empty-collection {
+  grid-column: 1 / -1;
+
+  display: flex;
+
+  align-items: center;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  min-height: 300px;
+
+  padding: 2.5rem 1.5rem;
+
+  background: #ffffff;
+
+  border: 2px dashed #cbd5e1;
+
+  border-radius: 20px;
+
+  text-align: center;
+}
+
+
+.empty-icon {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 70px;
+  height: 70px;
+
+  margin-bottom: 1rem;
+
+  border-radius: 50%;
+
+  background: #eff6ff;
+
+  font-size: 2rem;
+}
+
+
+.empty-collection h3 {
+  margin: 0 0 0.4rem;
+
+  color: #1e293b;
+
+  font-family: 'Chakra Petch', sans-serif;
+
+  font-size: 1.2rem;
+}
+
+
+.empty-collection p {
+  margin: 0;
+
+  color: #64748b;
+
+  font-size: 0.9rem;
+}
+
+
+.empty-collection .empty-hint {
+  margin-top: 0.4rem;
+
+  color: #94a3b8;
+
+  font-size: 0.78rem;
+}
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 650px) {
+
+  .inventory-header {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+  .inventory-counter {
+    flex-direction: row;
+
+    gap: 0.5rem;
+
+    width: 100%;
+  }
+
+  .inventory-counter span {
+    margin-top: 0;
+  }
+
+}
+
+
+@media (max-width: 480px) {
+
+  .collection-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+
+    gap: 0.75rem;
+  }
+
+  .inventory-header {
+    padding: 1.1rem;
+  }
+
+  .inventory-icon {
+    flex-basis: 48px;
+
+    width: 48px;
+    height: 48px;
+
+    font-size: 1.4rem;
+  }
+
+  .inventory-title h2 {
+    font-size: 1.2rem;
+  }
+
+  .pokemon-image {
+    height: 145px;
+  }
+
+  .pokemon-image img {
+    width: 115px;
+    height: 115px;
+  }
+
+  .image-background {
+    width: 100px;
+    height: 100px;
+  }
+
+  .pokemon-details {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .pokemon-details h3 {
+    font-size: 0.95rem;
+  }
+
+  .actions {
+    grid-template-columns: 1fr;
+
+    padding: 0.6rem;
+  }
+
+}
